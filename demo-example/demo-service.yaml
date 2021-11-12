@@ -1,0 +1,23 @@
+appVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: demo-deployment
+  lables:
+    app: demo-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-service
+  template:
+    metadata:
+      labels:
+        app: demo-service
+    spec:
+      containers:
+      - name: demo-service
+        image: 
+        ports:
+        - containerPort: 8081    
+      
+           
