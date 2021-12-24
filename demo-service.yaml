@@ -1,23 +1,35 @@
-appVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: demo-deployment
-  lables:
-    app: demo-service
+metadata:
+  name: demo-service-app
+  labels:
+    app: demo-service-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-service
+      app: demo-service-app
   template:
     metadata:
       labels:
-        app: demo-service
+        app: demo-service-app
     spec:
       containers:
-      - name: demo-service
-        image: 
-        ports:
-        - containerPort: 8081    
-      
-           
+        - name: demo-service-app
+          image: onkardevale/demo-example:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-service-svc-1
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: 8081
+      port: 80
+  selector:
+    app: demo-service-app
