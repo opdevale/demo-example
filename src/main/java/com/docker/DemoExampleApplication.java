@@ -23,6 +23,6 @@ public class DemoExampleApplication {
 	
 	@GetMapping
 	public String getInfo() {
-		return "This is sample web application";
+		return "<html><div style="color: blue;">This is sample web application</div></html>";
 	}
 }
