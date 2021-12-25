@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @SpringBootApplication
 @RestController
-@RequestMapping(path = "/order")
+@RequestMapping(path = "/demo")
 public class DemoExampleApplication {
 
 	public static void main(String[] args) {
@@ -23,6 +23,6 @@ public class DemoExampleApplication {
 	
 	@GetMapping
 	public String getInfo() {
-		return "<html><div style="color: blue;">This is sample web application</div></html>";
+		return "This is DEMO APPLICATION !";
 	}
 }
